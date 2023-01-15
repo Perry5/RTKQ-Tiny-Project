@@ -1,0 +1,21 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Myra"
+    }
+  ],
+  "albums": [
+    {
+      "userId": 1,
+      "title": "Small Rubber Bike",
+      "id": 1
+    },
+    {
+      "userId": 1,
+      "title": "Recycled Cotton Shoes",
+      "id": 2
+    }
+  ],
+  "photos": []
+}

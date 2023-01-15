@@ -1,0 +1,30 @@
+import { configureStore } from '@reduxjs/toolkit';
+import { setupListeners } from '@reduxjs/toolkit/query';
+import { usersReducer } from './slices/usersSlice';
+import { albumsApi } from './apis/albumsApi';
+
+export const store = configureStore({
+  reducer: {
+    users: usersReducer,
+    // whenever we create an API with RTK Query
+    // a slice is created for us automatically
+    // an this slice is a combined reducer. We have to
+    // connect that combined reducer to all out different
+    // reducers
+    [albumsApi.reducerPath]: albumsApi.reducer,
+  },
+  middleware: (getDefaultMiddleware) => {
+    return getDefaultMiddleware().concat(albumsApi.middleware);
+  },
+});
+
+setupListeners(store.dispatch);
+
+export * from './thunks/fetchUsers';
+export * from './thunks/addUser';
+export * from './thunks/removeUser';
+export {
+  useFetchAlbumsQuery,
+  useAddAlbumMutation,
+  useRemoveAlbumMutation
+} from './apis/albumsApi';
