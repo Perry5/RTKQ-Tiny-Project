@@ -14,10 +14,10 @@ just to compare both of them and see why we might pick one over the other.
 This project displays a component for a user to create users and
 albums (associated with the users)
 
-I used [json-server](https://www.npmjs.com/package/json-server)
+- I used [json-server](https://www.npmjs.com/package/json-server)
 to serve as the backend. Our DB is the `db.json` file. When you create
 a user or album, they get added to this file.
-
+- I use [faker js](https://github.com/faker-js/faker) to generate the names or users and albums
 - The AddUser functionality is built with async thunks
 - The AddAlbums functionality is built with RTKQ
 
